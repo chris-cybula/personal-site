@@ -22,9 +22,9 @@ const Container = styled.div`
 	  width: 100%;
 	  height: 100%;
     background-color: black;
-    animation: fadeInAnimation ease 3s; 
-    animation-iteration-count: 1; 
+    animation: fadeInAnimation ease 5s; 
     animation-fill-mode: forwards; 
+    animation-delay: 1s;
   }
 
   @keyframes fadeInAnimation { 
