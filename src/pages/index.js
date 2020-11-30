@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
+import Headings from "../components/Headings"
 import styled  from "styled-components"
 import img from "../images/bg.jpg"
 
@@ -10,9 +11,14 @@ const Container = styled.div`
   background-image: url(${img});
   background-position: center;
   background-size: cover;
+  background-size: 800px;
   background-repeat: no-repeat;
   z-index: 1;
   margin: 0 auto;
+
+  @media (min-width: 768px) { 
+    background-size: cover;
+  }
   
   &::before {
     content: '';
@@ -53,7 +59,9 @@ const Container = styled.div`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Container></Container>
+    <Container>
+      <Headings />
+    </Container>
   </Layout>
 )
 
