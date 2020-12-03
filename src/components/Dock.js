@@ -17,6 +17,7 @@ const MODIFIER_CONFIG = {
 
   browser: () => `
       background-color: #006CFF;
+      padding: 4px;
   `,
 
   bin: () => `
@@ -70,9 +71,9 @@ const Headings = () => {
           <svg
             id="Layer_1"
             enable-background="new 0 0 512 512"
-            height="20"
+            height="21"
             viewBox="0 0 512 512"
-            width="20"
+            width="21"
             xmlns="http://www.w3.org/2000/svg"
           >
             <g>
