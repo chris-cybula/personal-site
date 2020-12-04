@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 
@@ -39,8 +39,13 @@ const Container = styled.div`
   z-index: 2;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
+  transform: translateX(-50%);
+  transition: transform .3s ease-in-out;
+
+  &.is-hidden {
+    transform: translate(-50%, 100%);
+  }
 `
 
 const IconWrapper = styled.div`
@@ -64,13 +69,19 @@ const Line = styled.div`
 `
 
 const Headings = () => {
+  const [dockActive, setDockActive] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => setDockActive(true), 3000)
+  }, [])
+
   return (
     <>
-      <Container>
+      <Container className={`${dockActive === true ? "" : "is-hidden"}`}>
         <IconWrapper modifiers={"browser"}>
           <svg
             id="Layer_1"
-            enable-background="new 0 0 512 512"
+            enableBackground="new 0 0 512 512"
             height="21"
             viewBox="0 0 512 512"
             width="21"
@@ -87,7 +98,7 @@ const Headings = () => {
         <IconWrapper modifiers={"mail"}>
           <svg
             id="Capa_1"
-            enable-background="new 0 0 512 512"
+            enableBackground="new 0 0 512 512"
             height="20"
             viewBox="0 0 512 512"
             width="20"
@@ -109,7 +120,7 @@ const Headings = () => {
 
         <IconWrapper modifiers={"github"}>
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="20"
             viewBox="0 0 24 24"
             width="20"
@@ -122,7 +133,7 @@ const Headings = () => {
         <IconWrapper modifiers={"linkedin"}>
           <svg
             id="Bold"
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="20"
             viewBox="0 0 24 24"
             width="20"
@@ -137,7 +148,7 @@ const Headings = () => {
         <IconWrapper modifiers={"music"}>
           <svg
             id="Layer_1"
-            enable-background="new 0 0 512 512"
+            enableBackground="new 0 0 512 512"
             height="20"
             viewBox="0 0 512 512"
             width="20"
@@ -160,7 +171,7 @@ const Headings = () => {
         <IconWrapper modifiers={"bin"}>
           <svg
             id="Layer_1"
-            enable-background="new 0 0 512 512"
+            enableBackground="new 0 0 512 512"
             height="20"
             viewBox="0 0 512 512"
             width="20"
