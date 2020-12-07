@@ -60,16 +60,23 @@ const Browser = () => {
     distY: 0
   })
 
-  const handleMouseDown = () => {
-    console.log(refContainer)
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+
+    setDist({ 
+      distX: Math.abs(refMockupWrapper.current.offsetLeft - e.clientX),
+      distY: Math.abs(refMockupWrapper.current.offsetTop - e.clientY)
+     })
+
+    console.log(dist)
+
+
   }
 
   const handleMouseMove = () => {
-    console.log("onMove")
   }
 
   const handleMouseUp = () => {
-    console.log("onUp")
   }
 
   return (
