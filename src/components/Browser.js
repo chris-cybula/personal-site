@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 
@@ -52,8 +52,16 @@ const MockupContent = styled.div`
 `
 
 const Browser = () => {
+  const refContainer = React.useRef();
+  const refMockupWrapper = React.useRef();
+
+  const [dist, setDist] = useState({
+    distX: 0,
+    distY: 0
+  })
+
   const handleMouseDown = () => {
-    console.log("onDown")
+    console.log(refContainer)
   }
 
   const handleMouseMove = () => {
@@ -66,8 +74,8 @@ const Browser = () => {
 
   return (
     <>
-      <Container onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
-        <MockupWrapper onMouseDown={handleMouseDown}>
+      <Container ref={refContainer} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+        <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
           <MockupContent></MockupContent>
         </MockupWrapper>
       </Container>
