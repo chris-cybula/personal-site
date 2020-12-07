@@ -36,12 +36,12 @@ const Container = styled.div`
   background-color: #dee2e6;
   border-radius: 0.4rem 0.4rem 0 0;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   bottom: 0;
   left: 50%;
   display: flex;
   transform: translateX(-50%);
-  transition: transform .3s ease-in-out;
+  transition: transform .2s ease-in-out;
 
   &.is-hidden {
     transform: translate(-50%, 100%);

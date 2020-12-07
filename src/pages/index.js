@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Dock from "../components/Dock"
+import Browser from "../components/Browser"
 import styled  from "styled-components"
 import img from "../images/bg.jpg"
 
@@ -60,6 +61,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Container>
+      <Browser />
       <Dock />
     </Container>
   </Layout>
