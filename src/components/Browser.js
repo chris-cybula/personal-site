@@ -7,16 +7,17 @@ const Container = styled.div`
   height: 100vh;
   align-items: center;
   position: relative;
+  overflow: hidden;
   z-index: 2;
 `
 
 const MockupWrapper = styled.div`
   border-top: 2em solid rgba(230, 230, 230, 0.7);
   box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
-  position: relative;
+  position: absolute;
   border-radius: 3px 3px 0 0;
   width: 500px;
-  margin: 0 auto;
+  margin: 0;
 
   &:before {
     display: block;
@@ -68,15 +69,20 @@ const Browser = () => {
       distY: Math.abs(refMockupWrapper.current.offsetTop - e.clientY)
      })
 
+     refMockupWrapper.current.style.pointerEvents = 'none';
+
     console.log(dist)
-
-
   }
 
-  const handleMouseMove = () => {
+  const handleMouseMove = (e) => {
+    if(refMockupWrapper.current.style.pointerEvents === 'none') {
+      refMockupWrapper.current.style.left = `${e.clientX - dist.distX}px`;
+      refMockupWrapper.current.style.top = `${e.clientY - dist.distY}px`;
+    } 
   }
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (e) => {
+    refMockupWrapper.current.style.pointerEvents = 'initial';
   }
 
   return (

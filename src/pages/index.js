@@ -12,7 +12,6 @@ const Container = styled.div`
   background-image: url(${img});
   background-position: center;
   background-size: cover;
-  background-size: 800px;
   background-repeat: no-repeat;
   z-index: 1;
   margin: 0 auto;
@@ -61,8 +60,8 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Container>
-      <Browser />
       <Dock />
+      <Browser />
     </Container>
   </Layout>
 )
