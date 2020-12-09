@@ -33,7 +33,7 @@ const MODIFIER_CONFIG = {
 }
 
 const Container = styled.div`
-  background-color: #dee2e6;
+  background-color: rgba(230, 230, 230, 0.7);
   border-radius: 0.4rem 0.4rem 0 0;
   position: fixed;
   z-index: 3;
@@ -50,7 +50,7 @@ const Container = styled.div`
 
 const IconWrapper = styled.div`
   background-color: gray;
-  fill: #dee2e6;
+  fill: white;
   border-radius: 0.4rem;
   margin: 5px 0 5px 5px;
   padding: 5px;

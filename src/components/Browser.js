@@ -6,6 +6,7 @@ const Container = styled.div`
   display: flex;
   height: 100vh;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   z-index: 2;
@@ -16,8 +17,8 @@ const MockupWrapper = styled.div`
   border-top: 2em solid rgba(230, 230, 230, 0.7);
   box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
   position: absolute;
-  border-radius: 3px 3px 0 0;
-  width: 1000px;
+  border-radius: 0.4rem 0.4rem 0 0;
+  width: 800px;
   margin: 0;
 
   &:before {
@@ -47,10 +48,25 @@ const MockupWrapper = styled.div`
 `
 
 const MockupContent = styled.div`
-  height: 500px;
-  width: 1000px;
-  background-color: gray;
-  border-radius: 0 0 3px 3px;
+  height: 450px;
+  width: 800px;
+  background-color: white;
+  border-radius: 0 0 0.4rem 0.4rem;
+  /* padding-left: 8px; */
+`
+
+const Heading = styled.h1`
+  margin-top: 0;
+  padding-top: 8px;
+  padding-left: 8px;
+`
+
+const SubHeading = styled.h2`
+  padding-left: 8px;
+`
+
+const Image = styled.img`
+  padding-left: 8px;
 `
 
 const Browser = () => {
@@ -90,7 +106,12 @@ const Browser = () => {
     <>
       <Container ref={refContainer} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
-          <MockupContent></MockupContent>
+          <MockupContent>
+            <Heading>My name is Chris.</Heading>
+            <SubHeading>I love building things for the web.</SubHeading>
+            <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fwindows_9x_user.gif?v=1576535359941"></Image>
+            {/* <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fearth.gif?v=1576535366267"></Image> */}
+          </MockupContent>
         </MockupWrapper>
       </Container>
     </>
