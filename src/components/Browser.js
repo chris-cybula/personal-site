@@ -9,6 +9,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 2;
+  margin-top: -100vh;
 `
 
 const MockupWrapper = styled.div`
@@ -16,7 +17,7 @@ const MockupWrapper = styled.div`
   box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
   position: absolute;
   border-radius: 3px 3px 0 0;
-  width: 500px;
+  width: 1000px;
   margin: 0;
 
   &:before {
@@ -46,8 +47,8 @@ const MockupWrapper = styled.div`
 `
 
 const MockupContent = styled.div`
-  height: 200px;
-  width: 500px;
+  height: 500px;
+  width: 1000px;
   background-color: gray;
   border-radius: 0 0 3px 3px;
 `
