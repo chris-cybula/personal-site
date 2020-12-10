@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenBrowser } from "../state/actions/setOpenBrowser";
 
 const MODIFIER_CONFIG = {
   linkedin: () => `
@@ -68,7 +70,8 @@ const Line = styled.div`
   margin-top: 5px;
 `
 
-const Headings = () => {
+const Dock = () => {
+  const dispatch = useDispatch();
   const [dockActive, setDockActive] = useState(false)
 
   useEffect(() => {
@@ -76,7 +79,7 @@ const Headings = () => {
   }, [])
 
   const openBrowser = () => {
-    console.log('Chris')
+    dispatch(setOpenBrowser(true));
   }
 
   return (
@@ -192,4 +195,4 @@ const Headings = () => {
   )
 }
 
-export default Headings
+export default Dock

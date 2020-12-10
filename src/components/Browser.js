@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
+import { OpenBrowserTypes } from "../state/reducers/openBrowser";
+import { useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +13,10 @@ const Container = styled.div`
   overflow: hidden;
   z-index: 2;
   margin-top: -100vh;
+
+  &.is-closed {
+    display: none;
+  }
 `
 
 const MockupWrapper = styled.div`
@@ -20,7 +26,6 @@ const MockupWrapper = styled.div`
   border-radius: 0.4rem 0.4rem 0 0;
   width: 800px;
   margin: 0;
-  display: none;
 
   &:before {
     display: block;
@@ -73,6 +78,9 @@ const Browser = () => {
   const refContainer = React.useRef();
   const refMockupWrapper = React.useRef();
 
+  // const state = useSelector((state: StateTypes) => state["openBrowser"]);
+  const state = useSelector((state) => state["openBrowser"]);
+
   const [dist, setDist] = useState({
     distX: 0,
     distY: 0
@@ -104,7 +112,7 @@ const Browser = () => {
 
   return (
     <>
-      <Container ref={refContainer} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <Container className={(state.isOpen === true ? '' : 'is-closed')} ref={refContainer} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
           <MockupContent>
             {/* <Image src="http://stryvemarketing.com/wp-content/uploads/2016/04/flamingline.gif" alt="flamingline" width="600" height="82"></Image>

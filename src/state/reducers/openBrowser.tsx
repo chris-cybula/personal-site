@@ -1,6 +1,6 @@
 import { SetOpenBrowserType } from "../actions/setOpenBrowser";
 
-export interface StateTypes {
+export interface OpenBrowserTypes {
   isOpen: boolean;
 }
 
@@ -8,7 +8,7 @@ const initialState = {
   isOpen: false,
 };
 
-const openBrowser = (state: StateTypes = initialState, action: SetOpenBrowserType) => {
+const openBrowser = (state: OpenBrowserTypes = initialState, action: SetOpenBrowserType) => {
   switch (action.type) {
     case "SET_OPEN_BROWSER":
       return { ...state, isOpen: action.payload };
