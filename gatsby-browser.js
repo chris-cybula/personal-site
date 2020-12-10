@@ -1,7 +1,18 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from "react"
+import { Provider } from "react-redux"
+import { store } from "./src/state/store"
+import { Helmet } from "react-helmet"
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => {
+  return (
+    <>
+    <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <Provider store={store}>{element}</Provider>
+    </>
+  )
+}
