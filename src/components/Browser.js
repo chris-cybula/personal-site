@@ -20,6 +20,7 @@ const MockupWrapper = styled.div`
   border-radius: 0.4rem 0.4rem 0 0;
   width: 800px;
   margin: 0;
+  display: none;
 
   &:before {
     display: block;
@@ -52,7 +53,6 @@ const MockupContent = styled.div`
   width: 800px;
   background-color: white;
   border-radius: 0 0 0.4rem 0.4rem;
-  /* padding-left: 8px; */
 `
 
 const Heading = styled.h1`
@@ -107,10 +107,11 @@ const Browser = () => {
       <Container ref={refContainer} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
           <MockupContent>
+            {/* <Image src="http://stryvemarketing.com/wp-content/uploads/2016/04/flamingline.gif" alt="flamingline" width="600" height="82"></Image>
             <Heading>My name is Chris.</Heading>
             <SubHeading>I love building things for the web.</SubHeading>
             <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fwindows_9x_user.gif?v=1576535359941"></Image>
-            {/* <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fearth.gif?v=1576535366267"></Image> */}
+            <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fearth.gif?v=1576535366267"></Image> */}
           </MockupContent>
         </MockupWrapper>
       </Container>

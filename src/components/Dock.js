@@ -75,10 +75,14 @@ const Headings = () => {
     setTimeout(() => setDockActive(true), 3000)
   }, [])
 
+  const openBrowser = () => {
+    console.log('Chris')
+  }
+
   return (
     <>
       <Container className={`${dockActive === true ? "" : "is-hidden"}`}>
-        <IconWrapper modifiers={"browser"}>
+        <IconWrapper modifiers={"browser"} onClick={ openBrowser }>
           <svg
             id="Layer_1"
             enableBackground="new 0 0 512 512"
