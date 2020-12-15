@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
-import { OpenBrowserTypes } from "../state/reducers/openBrowser";
-import { useDispatch, useSelector } from "react-redux";
+import { OpenBrowserTypes } from "../state/reducers/openBrowser"
+import { useDispatch, useSelector } from "react-redux"
 
 const Container = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const MockupWrapper = styled.div`
   width: 800px;
   margin: 0;
 
-  &:before {
+  /* &:before {
     display: block;
     position: absolute;
     content: "";
@@ -38,7 +38,7 @@ const MockupWrapper = styled.div`
     border-radius: 50%;
     background-color: #f44;
     box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
-  }
+  } */
 
   &:after {
     display: block;
@@ -60,6 +60,32 @@ const MockupContent = styled.div`
   border-radius: 0 0 0.4rem 0.4rem;
 `
 
+const MockupBar = styled.div`
+  background-color: red;
+  padding: 6px 0;
+`
+
+const MockupInput = styled.div`
+  width: calc(100% - 6em);
+  height: 1.2em;
+  border-radius: 2px;
+  background-color: white;
+`
+
+const MockupButton = styled.div`
+  width: calc(100% - 6em);
+  height: 1.2em;
+  border-radius: 2px;
+  background-color: white;
+`
+
+const MockupButtons = styled.div`
+  width: calc(100% - 6em);
+  height: 1.2em;
+  border-radius: 2px;
+  background-color: white;
+`
+
 const Heading = styled.h1`
   margin-top: 0;
   padding-top: 8px;
@@ -75,45 +101,58 @@ const Image = styled.img`
 `
 
 const Browser = () => {
-  const refContainer = React.useRef();
-  const refMockupWrapper = React.useRef();
+  const refContainer = React.useRef()
+  const refMockupWrapper = React.useRef()
 
   // const state = useSelector((state: StateTypes) => state["openBrowser"]);
-  const state = useSelector((state) => state["openBrowser"]);
+  const state = useSelector(state => state["openBrowser"])
 
   const [dist, setDist] = useState({
     distX: 0,
-    distY: 0
+    distY: 0,
   })
 
-  const handleMouseDown = (e) => {
-    e.preventDefault();
+  const handleMouseDown = e => {
+    e.preventDefault()
 
-    setDist({ 
+    setDist({
       distX: Math.abs(refMockupWrapper.current.offsetLeft - e.clientX),
-      distY: Math.abs(refMockupWrapper.current.offsetTop - e.clientY)
-     })
+      distY: Math.abs(refMockupWrapper.current.offsetTop - e.clientY),
+    })
 
-     refMockupWrapper.current.style.pointerEvents = 'none';
+    refMockupWrapper.current.style.pointerEvents = "none"
 
     console.log(dist)
   }
 
-  const handleMouseMove = (e) => {
-    if(refMockupWrapper.current.style.pointerEvents === 'none') {
-      refMockupWrapper.current.style.left = `${e.clientX - dist.distX}px`;
-      refMockupWrapper.current.style.top = `${e.clientY - dist.distY}px`;
-    } 
+  const handleMouseMove = e => {
+    if (refMockupWrapper.current.style.pointerEvents === "none") {
+      refMockupWrapper.current.style.left = `${e.clientX - dist.distX}px`
+      refMockupWrapper.current.style.top = `${e.clientY - dist.distY}px`
+    }
   }
 
-  const handleMouseUp = (e) => {
-    refMockupWrapper.current.style.pointerEvents = 'initial';
+  const handleMouseUp = e => {
+    refMockupWrapper.current.style.pointerEvents = "initial"
   }
 
   return (
     <>
-      <Container className={(state.isOpen === true ? '' : 'is-closed')} ref={refContainer} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <Container
+        className={state.isOpen === true ? "" : "is-closed"}
+        ref={refContainer}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
+          <MockupBar>
+            <MockupButtons>
+              <MockupButton>1</MockupButton>
+              <MockupButton>2</MockupButton>
+              <MockupButton>3</MockupButton>
+            </MockupButtons>
+            <MockupInput>chris-cybula.com</MockupInput>
+          </MockupBar>
           <MockupContent>
             {/* <Image src="http://stryvemarketing.com/wp-content/uploads/2016/04/flamingline.gif" alt="flamingline" width="600" height="82"></Image>
             <Heading>My name is Chris.</Heading>
