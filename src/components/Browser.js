@@ -72,18 +72,16 @@ const MockupInput = styled.div`
   background-color: white;
 `
 
-const MockupButton = styled.div`
-  width: calc(100% - 6em);
+const MockupButtons = styled.div`
   height: 1.2em;
-  border-radius: 2px;
-  background-color: white;
+  display: flex;
 `
 
-const MockupButtons = styled.div`
-  width: calc(100% - 6em);
-  height: 1.2em;
-  border-radius: 2px;
-  background-color: white;
+const MockupButton = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  margin: 0 10px;
 `
 
 const Heading = styled.h1`
@@ -145,14 +143,16 @@ const Browser = () => {
         onMouseUp={handleMouseUp}
       >
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
+
           <MockupBar>
             <MockupButtons>
-              <MockupButton>1</MockupButton>
-              <MockupButton>2</MockupButton>
-              <MockupButton>3</MockupButton>
+              <MockupButton></MockupButton>
+              <MockupButton></MockupButton>
+              <MockupButton></MockupButton>
             </MockupButtons>
-            <MockupInput>chris-cybula.com</MockupInput>
+            {/* <MockupInput>chris-cybula.com</MockupInput> */}
           </MockupBar>
+
           <MockupContent>
             {/* <Image src="http://stryvemarketing.com/wp-content/uploads/2016/04/flamingline.gif" alt="flamingline" width="600" height="82"></Image>
             <Heading>My name is Chris.</Heading>
