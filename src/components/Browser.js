@@ -10,8 +10,7 @@ const MODIFIER_CONFIG = {
       background-color: #FF5452;
       border: 1px solid #FF5452;
       cursor: pointer;
-      positon: relative;
-      z-index: 200;
+      pointer-events: initial;
   `,
 }
 
@@ -89,6 +88,7 @@ const MockupInput = styled.div`
   margin-right: 20px;
   padding: 2px 0 2px 10px;
   font-family: Lato;
+  cursor: default;
 `
 
 const MockupButtons = styled.div`
@@ -161,7 +161,7 @@ const Browser = () => {
   }
 
   const closeBrowser = e => {
-    // dispatch(setOpenBrowser(false));
+    dispatch(setOpenBrowser(false));
 
     console.log('Chris')
   }
@@ -174,11 +174,11 @@ const Browser = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       >
-        <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown} onClick={ closeBrowser }>
+        <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
 
           <MockupBar>
             <MockupButtons>
-              <MockupButton modifiers={"close"} ></MockupButton>
+              <MockupButton modifiers={"close"} onClick={ closeBrowser }></MockupButton>
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
