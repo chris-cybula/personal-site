@@ -35,7 +35,7 @@ const MODIFIER_CONFIG = {
 }
 
 const Container = styled.div`
-  background-color: rgba(230, 230, 230, 0.7);
+  background-color: rgba(230, 230, 230, 0.9);
   border-radius: 0.4rem 0.4rem 0 0;
   position: fixed;
   z-index: 3;
@@ -66,7 +66,7 @@ const IconWrapper = styled.div`
 const Line = styled.div`
   width: 1px;
   height: 30px;
-  background-color: black;
+  background-color: gray;
   margin-top: 5px;
 `
 

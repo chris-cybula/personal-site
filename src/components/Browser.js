@@ -3,11 +3,15 @@ import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 import { OpenBrowserTypes } from "../state/reducers/openBrowser"
 import { useDispatch, useSelector } from "react-redux"
+import { setOpenBrowser } from "../state/actions/setOpenBrowser";
 
 const MODIFIER_CONFIG = {
   close: () => `
       background-color: #FF5452;
       border: 1px solid #FF5452;
+      cursor: pointer;
+      positon: relative;
+      z-index: 200;
   `,
 }
 
@@ -74,19 +78,21 @@ const MockupBar = styled.div`
   display: flex;
   align-items: center;
   border-radius: 0.4rem 0.4rem 0 0;
-  background-color: rgba(230, 230, 230, 0.7);
+  background-color: rgba(230, 230, 230, 0.9);
 `
 
 const MockupInput = styled.div`
   width: calc(100% - 6em);
   height: 1.2em;
-  border-radius: 2px;
+  border-radius: 20px;
   background-color: white;
   margin-right: 20px;
+  padding: 2px 0 2px 10px;
+  font-family: Lato;
 `
 
 const MockupButtons = styled.div`
-  height: 13px;
+  height: 15px;
   display: flex;
   margin: 0 15px;
 `
@@ -97,6 +103,8 @@ const MockupButton = styled.div`
   border: 1px solid gray;
   border-radius: 10px;
   margin: 0 5px;
+  position: relative;
+  z-index: 200;
   
   ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
@@ -118,6 +126,7 @@ const Image = styled.img`
 const Browser = () => {
   const refContainer = React.useRef()
   const refMockupWrapper = React.useRef()
+  const dispatch = useDispatch();
 
   // const state = useSelector((state: StateTypes) => state["openBrowser"]);
   const state = useSelector(state => state["openBrowser"])
@@ -151,6 +160,12 @@ const Browser = () => {
     refMockupWrapper.current.style.pointerEvents = "initial"
   }
 
+  const closeBrowser = e => {
+    // dispatch(setOpenBrowser(false));
+
+    console.log('Chris')
+  }
+
   return (
     <>
       <Container
@@ -159,11 +174,11 @@ const Browser = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       >
-        <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
+        <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown} onClick={ closeBrowser }>
 
           <MockupBar>
             <MockupButtons>
-              <MockupButton modifiers={"close"}></MockupButton>
+              <MockupButton modifiers={"close"} ></MockupButton>
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
