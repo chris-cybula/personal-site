@@ -4,6 +4,13 @@ import { applyStyleModifiers } from "styled-components-modifiers"
 import { OpenBrowserTypes } from "../state/reducers/openBrowser"
 import { useDispatch, useSelector } from "react-redux"
 
+const MODIFIER_CONFIG = {
+  close: () => `
+      background-color: #FF5452;
+      border: 1px solid #FF5452;
+  `,
+}
+
 const Container = styled.div`
   display: flex;
   height: 100vh;
@@ -20,12 +27,12 @@ const Container = styled.div`
 `
 
 const MockupWrapper = styled.div`
-  border-top: 2em solid rgba(230, 230, 230, 0.7);
-  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+  /* border-top: 2em solid rgba(230, 230, 230, 0.7);
+  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4); */
   position: absolute;
-  border-radius: 0.4rem 0.4rem 0 0;
+  /* border-radius: 0.4rem 0.4rem 0 0;
   width: 800px;
-  margin: 0;
+  margin: 0; */
 
   /* &:before {
     display: block;
@@ -40,7 +47,7 @@ const MockupWrapper = styled.div`
     box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
   } */
 
-  &:after {
+  /* &:after {
     display: block;
     position: absolute;
     content: "";
@@ -50,19 +57,24 @@ const MockupWrapper = styled.div`
     height: 1.2em;
     border-radius: 2px;
     background-color: white;
-  }
+  } */
 `
 
 const MockupContent = styled.div`
   height: 450px;
-  width: 800px;
+  min-width: 800px;
+  width: 100%;
   background-color: white;
   border-radius: 0 0 0.4rem 0.4rem;
 `
 
 const MockupBar = styled.div`
-  background-color: red;
-  padding: 6px 0;
+  background-color: gray;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem 0.4rem 0 0;
+  background-color: rgba(230, 230, 230, 0.7);
 `
 
 const MockupInput = styled.div`
@@ -70,18 +82,23 @@ const MockupInput = styled.div`
   height: 1.2em;
   border-radius: 2px;
   background-color: white;
+  margin-right: 20px;
 `
 
 const MockupButtons = styled.div`
-  height: 1.2em;
+  height: 13px;
   display: flex;
+  margin: 0 15px;
 `
 
 const MockupButton = styled.div`
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  margin: 0 10px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 0 5px;
+  
+  ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
 
 const Heading = styled.h1`
@@ -146,11 +163,11 @@ const Browser = () => {
 
           <MockupBar>
             <MockupButtons>
-              <MockupButton></MockupButton>
+              <MockupButton modifiers={"close"}></MockupButton>
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
-            {/* <MockupInput>chris-cybula.com</MockupInput> */}
+            <MockupInput>chris-cybula.com</MockupInput>
           </MockupBar>
 
           <MockupContent>
