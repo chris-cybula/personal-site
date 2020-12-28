@@ -64,11 +64,18 @@ const MockupWrapper = styled.div`
 `
 
 const MockupContent = styled.div`
-  height: 450px;
-  min-width: 800px;
-  width: 100%;
+  height: 70vh;
+  width: 100vw;
   background-color: white;
   border-radius: 0 0 0.4rem 0.4rem;
+
+  @media (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media (min-width: 576px) { 
+    height: 450px;
+  }
 `
 
 const MockupBar = styled.div`
@@ -89,6 +96,7 @@ const MockupInput = styled.div`
   padding: 2px 0 2px 10px;
   font-family: Lato;
   cursor: default;
+  line-height: 1.1;
 `
 
 const MockupButtons = styled.div`
