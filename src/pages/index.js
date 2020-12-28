@@ -4,8 +4,10 @@ import SEO from "../components/Seo"
 import Dock from "../components/Dock"
 import Browser from "../components/Browser"
 import Modal from "../components/Modal"
-import styled  from "styled-components"
+import styled from "styled-components"
 import img from "../images/bg.jpg"
+import { setOpenBackground } from "../state/actions/setOpenBackground";
+import { useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div`
   max-width: 1600px;
@@ -54,18 +56,37 @@ const Container = styled.div`
     100% { 
         opacity: 0; 
      } 
-} 
+  } 
+
+  @keyframes fadeOutAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+  } 
+
+  &.is-hidden {
+    &::after {
+      animation: fadeOutAnimation ease 5s; 
+    }
+  }
 `
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Container>
-      <Dock />
-    </Container>
-    <Browser />
-    <Modal />
-  </Layout>
-)
+const IndexPage = () => {
+  const state = useSelector(state => state["openBackground"])
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Container className={`${state.isOpen === false && "is-hidden"}`}>
+        <Dock />
+      </Container>
+      <Browser />
+      <Modal />
+    </Layout>
+  )
+}
 
 export default IndexPage
