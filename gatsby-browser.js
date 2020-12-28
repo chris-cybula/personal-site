@@ -2,6 +2,15 @@ import React from "react"
 import { Provider } from "react-redux"
 import { store } from "./src/state/store"
 import { Helmet } from "react-helmet"
+import { createGlobalStyle } from "styled-components"
+
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;   
+  }
+`
 
 export const wrapRootElement = ({ element }) => {
   return (
@@ -13,6 +22,7 @@ export const wrapRootElement = ({ element }) => {
         />
       </Helmet>
       <Provider store={store}>{element}</Provider>
+      <GlobalStyle />
     </>
   )
 }

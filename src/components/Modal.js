@@ -68,35 +68,26 @@ const MockupContent = styled.div`
   width: 100vw;
   background-color: white;
   border-radius: 0 0 0.4rem 0.4rem;
+  background-color: rgba(230, 230, 230, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (min-width: 768px) {
-    width: 768px;
+    width: 450px;
   }
 
   @media (min-width: 576px) { 
-    height: 450px;
+    height: 200px;
   }
 `
 
 const MockupBar = styled.div`
-  background-color: gray;
   padding: 8px 0;
   display: flex;
   align-items: center;
   border-radius: 0.4rem 0.4rem 0 0;
   background-color: rgba(230, 230, 230, 0.9);
-`
-
-const MockupInput = styled.div`
-  width: calc(100% - 6em);
-  height: 1.2em;
-  border-radius: 20px;
-  background-color: white;
-  margin-right: 20px;
-  padding: 2px 0 2px 10px;
-  font-family: Lato;
-  cursor: default;
-  line-height: 1.1;
 `
 
 const MockupButtons = styled.div`
@@ -190,16 +181,10 @@ const Browser = () => {
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
-            <MockupInput>chris-cybula.com</MockupInput>
           </MockupBar>
 
           <MockupContent>
-            <p>Modal</p>
-            {/* <Image src="http://stryvemarketing.com/wp-content/uploads/2016/04/flamingline.gif" alt="flamingline" width="600" height="82"></Image>
-            <Heading>My name is Chris.</Heading>
-            <SubHeading>I love building things for the web.</SubHeading>
-            <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fwindows_9x_user.gif?v=1576535359941"></Image>
-            <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fearth.gif?v=1576535366267"></Image> */}
+            <p>Site has been successfully deleted.</p>
           </MockupContent>
         </MockupWrapper>
       </Container>
