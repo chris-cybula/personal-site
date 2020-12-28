@@ -66,8 +66,8 @@ const MockupWrapper = styled.div`
 `
 
 const MockupContent = styled.div`
-  height: 70vh;
-  width: 100vw;
+  height: 180px;
+  width: calc(100vw - 20px);
   background-color: white;
   border-radius: 0 0 0.4rem 0.4rem;
   background-color: rgba(230, 230, 230, 1);
@@ -76,12 +76,8 @@ const MockupContent = styled.div`
   align-items: center;
   position: relative;
 
-  @media (min-width: 768px) {
+  @media (min-width: 450px) {
     width: 450px;
-  }
-
-  @media (min-width: 576px) { 
-    height: 180px;
   }
 `
 
@@ -126,8 +122,12 @@ const Image = styled.img`
 `
 
 const Text = styled.p`
-  margin-left: 20px;
+  margin-left: 10px;
   padding-bottom: 25px;
+
+  @media (min-width: 450px) {
+    margin-left: 20px;
+  }
 `
 
 const Button = styled.button`
@@ -151,6 +151,10 @@ const Button = styled.button`
 const Icon = styled.svg`
   fill: #555555;
   margin-bottom: 25px;
+
+  @media (max-width: 450px) {
+    width: 40px;
+  }
 `
 
 const Browser = () => {

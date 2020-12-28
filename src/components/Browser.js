@@ -65,7 +65,7 @@ const MockupWrapper = styled.div`
 
 const MockupContent = styled.div`
   height: 70vh;
-  width: 100vw;
+  width: calc(100vw - 20px);
   background-color: white;
   border-radius: 0 0 0.4rem 0.4rem;
 
