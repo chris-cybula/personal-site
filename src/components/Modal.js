@@ -5,6 +5,7 @@ import { OpenBrowserTypes } from "../state/reducers/openBrowser"
 import { useDispatch, useSelector } from "react-redux"
 import { setOpenModal } from "../state/actions/setOpenModal";
 import { setOpenDock } from "../state/actions/setOpenDock";
+import { setOpenBackground } from "../state/actions/setOpenBackground";
 
 const MODIFIER_CONFIG = {
   close: () => `
@@ -192,6 +193,7 @@ const Browser = () => {
   const closeModal = e => {
     dispatch(setOpenModal(false));
     dispatch(setOpenDock(false))
+    dispatch(setOpenBackground(false))
   }
 
   return (
