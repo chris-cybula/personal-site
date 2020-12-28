@@ -1,6 +1,6 @@
-import { SetOpenBrowserType } from "../actions/setOpenModal";
+import { SetOpenModalType } from "../actions/setOpenModal";
 
-export interface OpenBrowserTypes {
+export interface OpenModalTypes {
   isOpen: boolean;
 }
 
@@ -8,7 +8,7 @@ const initialState = {
   isOpen: false,
 };
 
-const openBrowser = (state: OpenBrowserTypes = initialState, action: SetOpenBrowserType) => {
+const openModal = (state: OpenModalTypes = initialState, action: SetOpenModalType) => {
   switch (action.type) {
     case "SET_OPEN_MODAL":
       return { ...state, isOpen: action.payload };
@@ -18,4 +18,4 @@ const openBrowser = (state: OpenBrowserTypes = initialState, action: SetOpenBrow
   }
 };
 
-export default openBrowser;
+export default openModal;

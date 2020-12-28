@@ -4,6 +4,7 @@ import { applyStyleModifiers } from "styled-components-modifiers"
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenBrowser } from "../state/actions/setOpenBrowser";
 import { setOpenModal } from "../state/actions/setOpenModal";
+import { setOpenDock } from "../state/actions/setOpenDock";
 
 const MODIFIER_CONFIG = {
   linkedin: () => `
@@ -79,10 +80,11 @@ const Link = styled.a`
 
 const Dock = () => {
   const dispatch = useDispatch();
-  const [dockActive, setDockActive] = useState(false)
+  // const [dockActive, setDockActive] = useState(false)
+  const state = useSelector(state => state["openDock"])
 
   useEffect(() => {
-    setTimeout(() => setDockActive(true), 3000)
+    setTimeout(() => dispatch(setOpenDock(true)), 3000)
   }, [])
 
   const openBrowser = () => {
@@ -95,7 +97,7 @@ const Dock = () => {
 
   return (
     <>
-      <Container className={`${dockActive === true ? "" : "is-hidden"}`}>
+      <Container className={`${state.isOpen === true ? "" : "is-hidden"}`}>
         <IconWrapper modifiers={"browser"} onClick={openBrowser}>
           <svg
             id="Layer_1"
