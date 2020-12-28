@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenBrowser } from "../state/actions/setOpenBrowser";
+import { setOpenModal } from "../state/actions/setOpenModal";
 
 const MODIFIER_CONFIG = {
   linkedin: () => `
@@ -86,6 +87,10 @@ const Dock = () => {
 
   const openBrowser = () => {
     dispatch(setOpenBrowser(true));
+  }
+
+  const openModal= () => {
+    dispatch(setOpenModal(true));
   }
 
   return (
@@ -190,7 +195,7 @@ const Dock = () => {
 
         <Line></Line>
 
-        <IconWrapper modifiers={"bin"}>
+        <IconWrapper modifiers={"bin"} onClick={openModal}>
           <svg
             id="Layer_1"
             enableBackground="new 0 0 512 512"
