@@ -69,6 +69,12 @@ const Line = styled.div`
   background-color: gray;
   margin-top: 5px;
 `
+const Link = styled.a`
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  border-radius: 0.4rem;
+`
 
 const Dock = () => {
   const dispatch = useDispatch();
@@ -85,7 +91,7 @@ const Dock = () => {
   return (
     <>
       <Container className={`${dockActive === true ? "" : "is-hidden"}`}>
-        <IconWrapper modifiers={"browser"} onClick={ openBrowser }>
+        <IconWrapper modifiers={"browser"} onClick={openBrowser}>
           <svg
             id="Layer_1"
             enableBackground="new 0 0 512 512"
@@ -103,6 +109,8 @@ const Dock = () => {
         </IconWrapper>
 
         <IconWrapper modifiers={"mail"}>
+          <Link href="mailto:chris.cybula@gmail.com">
+          </Link>
           <svg
             id="Capa_1"
             enableBackground="new 0 0 512 512"
@@ -125,7 +133,10 @@ const Dock = () => {
           </svg>
         </IconWrapper>
 
+
         <IconWrapper modifiers={"github"}>
+          <Link href="https://github.com/chris-cybula" target="_blank">
+          </Link>
           <svg
             enableBackground="new 0 0 24 24"
             height="20"
@@ -138,6 +149,8 @@ const Dock = () => {
         </IconWrapper>
 
         <IconWrapper modifiers={"linkedin"}>
+          <Link href="https://www.linkedin.com/in/chris-cybula" target="_blank">
+          </Link>
           <svg
             id="Bold"
             enableBackground="new 0 0 24 24"
@@ -153,6 +166,8 @@ const Dock = () => {
         </IconWrapper>
 
         <IconWrapper modifiers={"music"}>
+          <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+          </Link>
           <svg
             id="Layer_1"
             enableBackground="new 0 0 512 512"
