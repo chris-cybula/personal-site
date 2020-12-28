@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Dock from "../components/Dock"
 import Browser from "../components/Browser"
+import Modal from "../components/Modal"
 import styled  from "styled-components"
 import img from "../images/bg.jpg"
 
@@ -63,6 +64,7 @@ const IndexPage = () => (
       <Dock />
     </Container>
     <Browser />
+    <Modal />
   </Layout>
 )
 

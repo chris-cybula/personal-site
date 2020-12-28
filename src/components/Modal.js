@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 import { OpenBrowserTypes } from "../state/reducers/openBrowser"
 import { useDispatch, useSelector } from "react-redux"
-import { setOpenBrowser } from "../state/actions/setOpenBrowser";
+import { setOpenModal } from "../state/actions/setOpenModal";
 
 const MODIFIER_CONFIG = {
   close: () => `
@@ -137,7 +137,7 @@ const Browser = () => {
   const dispatch = useDispatch();
 
   // const state = useSelector((state: StateTypes) => state["openBrowser"]);
-  const state = useSelector(state => state["openBrowser"])
+  const state = useSelector(state => state["openModal"])
 
   const [dist, setDist] = useState({
     distX: 0,
@@ -169,7 +169,7 @@ const Browser = () => {
   }
 
   const closeBrowser = e => {
-    dispatch(setOpenBrowser(false));
+    dispatch(setOpenModal(false));
 
     console.log('Chris')
   }
