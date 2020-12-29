@@ -23,9 +23,11 @@ const Container = styled.div`
   overflow: hidden;
   z-index: 2;
   margin-top: -100vh;
+  transition: opacity 0.15s ease-in-out;
 
   &.is-closed {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
   }
 `
 
@@ -131,6 +133,7 @@ const Heading = styled.h1`
     animation-name: fadeInBottom;
     animation-duration: 1s;
     animation-fill-mode: both;
+    animation-delay: .15s;
 
     @keyframes fadeInBottom {
     from {
@@ -152,7 +155,7 @@ const SubHeading = styled.h2`
     animation-name: fadeInBottom;
     animation-duration: 1s;
     animation-fill-mode: both;
-    animation-delay: .5s;
+    animation-delay: .65s;
 
     @keyframes fadeInBottom {
     from {
@@ -180,6 +183,7 @@ const Browser = () => {
 
   // const state = useSelector((state: StateTypes) => state["openBrowser"]);
   const state = useSelector(state => state["openBrowser"])
+  const modal = useSelector(state => state["openModal"])
 
   const [dist, setDist] = useState({
     distX: 0,
@@ -219,7 +223,7 @@ const Browser = () => {
   return (
     <>
       <Container
-        className={state.isOpen === true ? "" : "is-closed"}
+        className={state.isOpen === true ? "" : "is-closed" || modal.isOpen === true ? "is-closed" : ""}
         ref={refContainer}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}

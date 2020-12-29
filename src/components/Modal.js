@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setOpenModal } from "../state/actions/setOpenModal";
 import { setOpenDock } from "../state/actions/setOpenDock";
 import { setOpenBackground } from "../state/actions/setOpenBackground";
+import { setOpenBrowser } from "../state/actions/setOpenBackground";
 
 const MODIFIER_CONFIG = {
   close: () => `
@@ -25,9 +26,12 @@ const Container = styled.div`
   overflow: hidden;
   z-index: 2;
   margin-top: -100vh;
+  transition: opacity 0.15s ease-in-out;
 
   &.is-closed {
-    display: none;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.15s ease-in-out;
   }
 `
 
