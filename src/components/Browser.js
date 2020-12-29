@@ -126,6 +126,20 @@ const Heading = styled.h1`
   margin: 0;
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
+  
+  &.is-open {
+    animation-name: fadeInBottom;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+
+    @keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to { opacity: 1 }
+    }
+  }  
 `
 
 const SubHeading = styled.h2`
@@ -133,6 +147,21 @@ const SubHeading = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   color: #ced8de;
+
+  &.is-open {
+    animation-name: fadeInBottom;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: .5s;
+
+    @keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to { opacity: 1 }
+    }
+  } 
 `
 
 const Name = styled.span`
@@ -207,8 +236,8 @@ const Browser = () => {
           </MockupBar>
 
           <MockupContent>
-            <Heading>My name is <Name>Chris</Name>.</Heading>
-            <SubHeading>I build things for the web.</SubHeading>
+            <Heading className={state.isOpen === true ? "is-open" : ""}>My name is <Name>Chris</Name>.</Heading>
+            <SubHeading className={state.isOpen === true ? "is-open" : ""}>I build things for the web.</SubHeading>
           </MockupContent>
         </MockupWrapper>
       </Container>
