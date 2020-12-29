@@ -184,6 +184,7 @@ const Browser = () => {
   // const state = useSelector((state: StateTypes) => state["openBrowser"]);
   const state = useSelector(state => state["openBrowser"])
   const modal = useSelector(state => state["openModal"])
+  const dock = useSelector(state => state["openDock"])
 
   const [dist, setDist] = useState({
     distX: 0,
@@ -223,7 +224,7 @@ const Browser = () => {
   return (
     <>
       <Container
-        className={state.isOpen === true ? "" : "is-closed" || modal.isOpen === true ? "is-closed" : ""}
+        className={(state.isOpen === true ? "" : "is-closed") || (modal.isOpen === true && "is-closed") || (dock.isOpen === false && "is-closed")}
         ref={refContainer}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
