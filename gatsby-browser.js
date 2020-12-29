@@ -15,11 +15,12 @@ const GlobalStyle = createGlobalStyle`
 export const wrapRootElement = ({ element }) => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet"></link>
       </Helmet>
       <Provider store={store}>{element}</Provider>
       <GlobalStyle />

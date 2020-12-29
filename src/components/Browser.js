@@ -63,21 +63,6 @@ const MockupWrapper = styled.div`
   } */
 `
 
-const MockupContent = styled.div`
-  height: 70vh;
-  width: calc(100vw - 20px);
-  background-color: white;
-  border-radius: 0 0 0.4rem 0.4rem;
-
-  @media (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media (min-width: 576px) { 
-    height: 450px;
-  }
-`
-
 const MockupBar = styled.div`
   background-color: gray;
   padding: 8px 0;
@@ -117,14 +102,42 @@ const MockupButton = styled.div`
   ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
 
+const MockupContent = styled.div`
+  height: 70vh;
+  width: calc(100vw - 20px);
+  background-color: #252839;
+  color: white;
+  border-radius: 0 0 0.4rem 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media (min-width: 576px) { 
+    height: 450px;
+  }
+`
+
 const Heading = styled.h1`
-  margin-top: 0;
-  padding-top: 8px;
-  padding-left: 8px;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
 `
 
 const SubHeading = styled.h2`
-  padding-left: 8px;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: #ced8de;
+`
+
+const Name = styled.span`
+  text-transform: uppercase;
+  color: #f1b631;
 `
 
 const Image = styled.img`
@@ -186,7 +199,7 @@ const Browser = () => {
 
           <MockupBar>
             <MockupButtons>
-              <MockupButton modifiers={"close"} onClick={ closeBrowser }></MockupButton>
+              <MockupButton modifiers={"close"} onClick={closeBrowser}></MockupButton>
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
@@ -194,11 +207,8 @@ const Browser = () => {
           </MockupBar>
 
           <MockupContent>
-            {/* <Image src="http://stryvemarketing.com/wp-content/uploads/2016/04/flamingline.gif" alt="flamingline" width="600" height="82"></Image>
-            <Heading>My name is Chris.</Heading>
-            <SubHeading>I love building things for the web.</SubHeading>
-            <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fwindows_9x_user.gif?v=1576535359941"></Image>
-            <Image src="https://cdn.glitch.com/78a63c0e-9d0d-41d5-84ad-1c4a47e813e0%2Fearth.gif?v=1576535366267"></Image> */}
+            <Heading>My name is <Name>Chris</Name>.</Heading>
+            <SubHeading>I build things for the web.</SubHeading>
           </MockupContent>
         </MockupWrapper>
       </Container>
