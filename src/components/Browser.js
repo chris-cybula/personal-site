@@ -125,7 +125,7 @@ const MockupContent = styled.div`
 `
 
 const Heading = styled.h1`
-  margin: 0;
+  margin: 0 10px;
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
   
@@ -146,7 +146,7 @@ const Heading = styled.h1`
 `
 
 const SubHeading = styled.h2`
-  margin: 0;
+  margin: 0 10px;
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   color: #ced8de;

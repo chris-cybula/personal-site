@@ -80,7 +80,7 @@ const MockupContent = styled.div`
   align-items: center;
   position: relative;
 
-  @media (min-width: 450px) {
+  @media (min-width: 470px) {
     width: 450px;
   }
 `
@@ -156,7 +156,7 @@ const Icon = styled.svg`
   fill: #555555;
   margin-bottom: 25px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 449px) {
     width: 40px;
   }
 `
