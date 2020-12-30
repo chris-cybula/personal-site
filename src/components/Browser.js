@@ -115,7 +115,7 @@ const MockupContent = styled.div`
   align-items: center;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media (min-width: 788px) {
     width: 768px;
   }
 
@@ -143,6 +143,10 @@ const Heading = styled.h1`
     to { opacity: 1 }
     }
   }  
+
+  @media (max-width: 500px) {
+    font-size: 1.8rem;
+  }
 `
 
 const SubHeading = styled.h2`
@@ -165,6 +169,10 @@ const SubHeading = styled.h2`
     to { opacity: 1 }
     }
   } 
+
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+  }
 `
 
 const Name = styled.span`
