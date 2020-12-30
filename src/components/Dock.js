@@ -53,7 +53,6 @@ const Container = styled.div`
 `
 
 const IconWrapper = styled.div`
-  background-color: gray;
   fill: white;
   border-radius: 0.4rem;
   margin: 5px 0 5px 5px;
