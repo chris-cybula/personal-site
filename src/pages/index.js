@@ -80,14 +80,45 @@ const Icon = styled.svg`
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+  cursor: pointer;
 
   &.is-active {
     opacity: 1;
+    transition: opacity 0.15s ease-in-out;
+    transition-delay: 5.1s;
+  }
+`
+const Restart = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50;
+  fill: white;
+  border-radius: 0.4rem;
+  margin: 5px 0 5px 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.15s ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    transition: opacity 0.15s ease-in-out;
+    transition-delay: 5.1s;
   }
 `
 
 const IndexPage = () => {
   const state = useSelector(state => state["openBackground"])
+
+  const handleRestart = () => {
+    window.location.reload()
+  }
 
   return (
     <Layout>
@@ -98,22 +129,24 @@ const IndexPage = () => {
       <Browser />
       <Modal />
 
-      <Icon
-        className={(state.isOpen === true ? "" : "is-active")}
-        id="Layer_1"
-        enableBackground="new 0 0 512 512"
-        height="21"
-        viewBox="0 0 512 512"
-        width="21"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="white"
-      >
-        <g>
-          <path d="m302.098 265.672 31.115-77.786c2.286-5.714-3.385-11.385-9.099-9.099l-77.786 31.115c-4.666 1.866-5.903 7.896-2.35 11.449l46.672 46.672c3.553 3.553 9.582 2.315 11.448-2.351z" />
-          <path d="m187.886 333.213 77.786-31.115c4.666-1.866 5.904-7.896 2.35-11.449l-46.672-46.672c-3.553-3.553-9.583-2.316-11.449 2.35l-31.115 77.786c-2.285 5.715 3.386 11.386 9.1 9.1z" />
-          <path d="m437.02 74.98c-48.353-48.352-112.64-74.98-181.02-74.98s-132.667 26.628-181.02 74.98-74.98 112.64-74.98 181.02 26.628 132.667 74.98 181.02 112.64 74.98 181.02 74.98 132.667-26.628 181.02-74.98 74.98-112.64 74.98-181.02-26.628-132.667-74.98-181.02zm-54.165 74.962-64 160c-1.626 4.065-4.848 7.287-8.913 8.913l-160 64c-1.926.771-3.941 1.145-5.939 1.145-4.167 0-8.258-1.628-11.317-4.687-4.525-4.526-5.919-11.313-3.542-17.256l64-160c1.626-4.065 4.848-7.287 8.913-8.913l160-64c5.944-2.377 12.73-.983 17.256 3.542 4.526 4.526 5.92 11.314 3.542 17.256z" />
-        </g>
-      </Icon>
+      <Restart className={(state.isOpen === true ? "" : "is-active")} onClick={handleRestart}>
+        <svg
+          id="Layer_1"
+          enableBackground="new 0 0 512 512"
+          height="21"
+          viewBox="0 0 14.155 14.155"
+          width="21"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="white"
+        >
+          <g>
+          <path fill="white" d="M12.083,1.887c-0.795-0.794-1.73-1.359-2.727-1.697v2.135c0.48,0.239,0.935,0.55,1.334,0.95
+		c1.993,1.994,1.993,5.236,0,7.229c-1.993,1.99-5.233,1.99-7.229,0c-1.991-1.995-1.991-5.235,0-7.229
+		C3.466,3.269,3.482,3.259,3.489,3.25h0.002l1.181,1.179L4.665,0.685L0.923,0.68l1.176,1.176C2.092,1.868,2.081,1.88,2.072,1.887
+		c-2.763,2.762-2.763,7.243,0,10.005c2.767,2.765,7.245,2.765,10.011,0C14.844,9.13,14.847,4.649,12.083,1.887z"/>
+          </g>
+        </svg>
+      </Restart>
 
     </Layout>
   )
