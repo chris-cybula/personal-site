@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
-import { OpenBrowserTypes } from "../state/reducers/openBrowser"
 import { useDispatch, useSelector } from "react-redux"
-import { setOpenModal } from "../state/actions/setOpenModal";
-import { setOpenDock } from "../state/actions/setOpenDock";
-import { setOpenBackground } from "../state/actions/setOpenBackground";
-import { setOpenBrowser } from "../state/actions/setOpenBackground";
+import { setOpenModal } from "../state/actions/setOpenModal"
+import { setOpenDock } from "../state/actions/setOpenDock"
+import { setOpenBackground } from "../state/actions/setOpenBackground"
 
 const MODIFIER_CONFIG = {
   close: () => `
@@ -36,37 +34,7 @@ const Container = styled.div`
 `
 
 const MockupWrapper = styled.div`
-  /* border-top: 2em solid rgba(230, 230, 230, 0.7);
-  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4); */
   position: absolute;
-  /* border-radius: 0.4rem 0.4rem 0 0;
-  width: 800px;
-  margin: 0; */
-
-  /* &:before {
-    display: block;
-    position: absolute;
-    content: "";
-    top: -1.25em;
-    left: 1em;
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    background-color: #f44;
-    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
-  } */
-
-  /* &:after {
-    display: block;
-    position: absolute;
-    content: "";
-    top: -1.6em;
-    left: 5.5em;
-    width: calc(100% - 6em);
-    height: 1.2em;
-    border-radius: 2px;
-    background-color: white;
-  } */
 `
 
 const MockupContent = styled.div`
@@ -111,20 +79,6 @@ const MockupButton = styled.div`
   ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
 
-const Heading = styled.h1`
-  margin-top: 0;
-  padding-top: 8px;
-  padding-left: 8px;
-`
-
-const SubHeading = styled.h2`
-  padding-left: 8px;
-`
-
-const Image = styled.img`
-  padding-left: 8px;
-`
-
 const Text = styled.p`
   margin-left: 10px;
   padding-bottom: 25px;
@@ -161,12 +115,10 @@ const Icon = styled.svg`
   }
 `
 
-const Browser = () => {
+const Modal = () => {
   const refContainer = React.useRef()
   const refMockupWrapper = React.useRef()
   const dispatch = useDispatch();
-
-  // const state = useSelector((state: StateTypes) => state["openBrowser"]);
   const state = useSelector(state => state["openModal"])
 
   const [dist, setDist] = useState({
@@ -183,8 +135,6 @@ const Browser = () => {
     })
 
     refMockupWrapper.current.style.pointerEvents = "none"
-
-    console.log(dist)
   }
 
   const handleMouseMove = e => {
@@ -198,7 +148,7 @@ const Browser = () => {
     refMockupWrapper.current.style.pointerEvents = "initial"
   }
 
-  const closeModal = e => {
+  const closeModal = () => {
     dispatch(setOpenModal(false));
     dispatch(setOpenDock(false))
     dispatch(setOpenBackground(false))
@@ -213,7 +163,6 @@ const Browser = () => {
         onMouseUp={handleMouseUp}
       >
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
-
           <MockupBar>
             <MockupButtons>
               <MockupButton modifiers={"close"} onClick={closeModal}></MockupButton>
@@ -221,7 +170,6 @@ const Browser = () => {
               <MockupButton></MockupButton>
             </MockupButtons>
           </MockupBar>
-
           <MockupContent>
             <Icon
               id="Layer_1"
@@ -245,4 +193,4 @@ const Browser = () => {
   )
 }
 
-export default Browser
+export default Modal
