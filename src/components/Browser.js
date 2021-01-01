@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
-import { OpenBrowserTypes } from "../state/reducers/openBrowser"
 import { useDispatch, useSelector } from "react-redux"
 import { setOpenBrowser } from "../state/actions/setOpenBrowser";
 
@@ -32,37 +31,7 @@ const Container = styled.div`
 `
 
 const MockupWrapper = styled.div`
-  /* border-top: 2em solid rgba(230, 230, 230, 0.7);
-  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4); */
   position: absolute;
-  /* border-radius: 0.4rem 0.4rem 0 0;
-  width: 800px;
-  margin: 0; */
-
-  /* &:before {
-    display: block;
-    position: absolute;
-    content: "";
-    top: -1.25em;
-    left: 1em;
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    background-color: #f44;
-    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
-  } */
-
-  /* &:after {
-    display: block;
-    position: absolute;
-    content: "";
-    top: -1.6em;
-    left: 5.5em;
-    width: calc(100% - 6em);
-    height: 1.2em;
-    border-radius: 2px;
-    background-color: white;
-  } */
 `
 
 const MockupBar = styled.div`
@@ -136,11 +105,13 @@ const Heading = styled.h1`
     animation-delay: .15s;
 
     @keyframes fadeInBottom {
-    from {
+      from {
         opacity: 0;
         transform: translateY(100%);
-    }
-    to { opacity: 1 }
+      }
+      to { 
+        opacity: 1;
+      }
     }
   }  
 
@@ -162,11 +133,13 @@ const SubHeading = styled.h2`
     animation-delay: .65s;
 
     @keyframes fadeInBottom {
-    from {
+      from {
         opacity: 0;
         transform: translateY(100%);
-    }
-    to { opacity: 1 }
+      }
+      to { 
+        opacity: 1 
+      }
     }
   } 
 
@@ -180,16 +153,10 @@ const Name = styled.span`
   color: #f1b631;
 `
 
-const Image = styled.img`
-  padding-left: 8px;
-`
-
 const Browser = () => {
   const refContainer = React.useRef()
   const refMockupWrapper = React.useRef()
   const dispatch = useDispatch();
-
-  // const state = useSelector((state: StateTypes) => state["openBrowser"]);
   const state = useSelector(state => state["openBrowser"])
   const modal = useSelector(state => state["openModal"])
   const dock = useSelector(state => state["openDock"])
@@ -208,8 +175,6 @@ const Browser = () => {
     })
 
     refMockupWrapper.current.style.pointerEvents = "none"
-
-    console.log(dist)
   }
 
   const handleMouseMove = e => {
@@ -225,8 +190,6 @@ const Browser = () => {
 
   const closeBrowser = e => {
     dispatch(setOpenBrowser(false));
-
-    console.log('Chris')
   }
 
   return (
@@ -238,7 +201,6 @@ const Browser = () => {
         onMouseUp={handleMouseUp}
       >
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
-
           <MockupBar>
             <MockupButtons>
               <MockupButton modifiers={"close"} onClick={closeBrowser}></MockupButton>
@@ -247,7 +209,6 @@ const Browser = () => {
             </MockupButtons>
             <MockupInput>chris-cybula.com</MockupInput>
           </MockupBar>
-
           <MockupContent>
             <Heading className={state.isOpen === true ? "is-open" : ""}>My name is <Name>Chris</Name>.</Heading>
             <SubHeading className={state.isOpen === true ? "is-open" : ""}>I build things for the web.</SubHeading>

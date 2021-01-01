@@ -45,7 +45,7 @@ const Container = styled.div`
   left: 50%;
   display: flex;
   transform: translateX(-50%);
-  transition: transform .2s ease-in-out;
+  transition: transform .15s ease-in-out;
 
   &.is-hidden {
     transform: translate(-50%, 100%);
