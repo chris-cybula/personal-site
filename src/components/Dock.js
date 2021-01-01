@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { applyStyleModifiers } from "styled-components-modifiers"
 import { useDispatch, useSelector } from "react-redux";
@@ -32,7 +32,6 @@ const MODIFIER_CONFIG = {
   music: () => `
       background-color: #7572ff;
       margin-right: 5px;
-      // fill: EA4CC0;
   `,
 }
 
@@ -64,12 +63,14 @@ const IconWrapper = styled.div`
 
   ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
+
 const Line = styled.div`
   width: 1px;
   height: 30px;
   background-color: gray;
   margin-top: 5px;
 `
+
 const Link = styled.a`
   height: 30px;
   width: 30px;
@@ -79,7 +80,6 @@ const Link = styled.a`
 
 const Dock = () => {
   const dispatch = useDispatch();
-  // const [dockActive, setDockActive] = useState(false)
   const state = useSelector(state => state["openDock"])
 
   useEffect(() => {
@@ -138,7 +138,6 @@ const Dock = () => {
             />
           </svg>
         </IconWrapper>
-
 
         <IconWrapper modifiers={"github"}>
           <Link href="https://github.com/chris-cybula" target="_blank">
