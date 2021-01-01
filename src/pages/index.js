@@ -6,8 +6,7 @@ import Browser from "../components/Browser"
 import Modal from "../components/Modal"
 import styled from "styled-components"
 import img from "../images/bg.jpg"
-import { setOpenBackground } from "../state/actions/setOpenBackground";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   max-width: 1600px;
@@ -51,20 +50,20 @@ const Container = styled.div`
 
   @keyframes fadeInAnimation { 
     0% { 
-        opacity: 1; 
+      opacity: 1; 
     } 
     100% { 
-        opacity: 0; 
-     } 
+      opacity: 0; 
+    } 
   } 
 
   @keyframes fadeOutAnimation { 
     0% { 
-        opacity: 0; 
+      opacity: 0; 
     } 
     100% { 
-        opacity: 1; 
-     } 
+      opacity: 1; 
+    } 
   } 
 
   &.is-hidden {
@@ -74,20 +73,6 @@ const Container = styled.div`
   }
 `
 
-const Icon = styled.svg`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  cursor: pointer;
-
-  &.is-active {
-    opacity: 1;
-    transition: opacity 0.15s ease-in-out;
-    transition-delay: 5.1s;
-  }
-`
 const Restart = styled.div`
   position: absolute;
   top: 50%;
@@ -128,7 +113,6 @@ const IndexPage = () => {
       </Container>
       <Browser />
       <Modal />
-
       <Restart className={(state.isOpen === true ? "" : "is-active")} onClick={handleRestart}>
         <svg
           id="Layer_1"
@@ -140,14 +124,10 @@ const IndexPage = () => {
           fill="white"
         >
           <g>
-          <path fill="white" d="M12.083,1.887c-0.795-0.794-1.73-1.359-2.727-1.697v2.135c0.48,0.239,0.935,0.55,1.334,0.95
-		c1.993,1.994,1.993,5.236,0,7.229c-1.993,1.99-5.233,1.99-7.229,0c-1.991-1.995-1.991-5.235,0-7.229
-		C3.466,3.269,3.482,3.259,3.489,3.25h0.002l1.181,1.179L4.665,0.685L0.923,0.68l1.176,1.176C2.092,1.868,2.081,1.88,2.072,1.887
-		c-2.763,2.762-2.763,7.243,0,10.005c2.767,2.765,7.245,2.765,10.011,0C14.844,9.13,14.847,4.649,12.083,1.887z"/>
+            <path fill="white" d="M12.083,1.887c-0.795-0.794-1.73-1.359-2.727-1.697v2.135c0.48,0.239,0.935,0.55,1.334,0.95 c1.993,1.994,1.993,5.236,0,7.229c-1.993,1.99-5.233,1.99-7.229,0c-1.991-1.995-1.991-5.235,0-7.229 C3.466,3.269,3.482,3.259,3.489,3.25h0.002l1.181,1.179L4.665,0.685L0.923,0.68l1.176,1.176C2.092,1.868,2.081,1.88,2.072,1.887 c-2.763,2.762-2.763,7.243,0,10.005c2.767,2.765,7.245,2.765,10.011,0C14.844,9.13,14.847,4.649,12.083,1.887z" />
           </g>
         </svg>
       </Restart>
-
     </Layout>
   )
 }
