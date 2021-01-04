@@ -207,7 +207,7 @@ const Browser = () => {
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
-            <MockupInput>chris-cybula.com</MockupInput>
+            <MockupInput>chris-cybula.dev</MockupInput>
           </MockupBar>
           <MockupContent>
             <Heading className={state.isOpen === true ? "is-open" : ""}>My name is <Name>Chris</Name>.</Heading>
