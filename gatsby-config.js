@@ -29,4 +29,5 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
   ],
+  pathPrefix: "/personal-site",
 }
