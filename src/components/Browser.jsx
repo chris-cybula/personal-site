@@ -23,10 +23,12 @@ const Container = styled.div`
   z-index: 2;
   margin-top: -100vh;
   transition: opacity 0.15s ease-in-out;
+  cursor: default;
 
   &.is-closed {
     opacity: 0;
     transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
   }
 `
 

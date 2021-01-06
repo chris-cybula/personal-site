@@ -90,11 +90,13 @@ const Restart = styled.div`
   opacity: 0;
   z-index: 2;
   transition: opacity 0.15s ease-in-out;
+  pointer-events: none;
 
   &.is-active {
     opacity: 1;
     transition: opacity 0.15s ease-in-out;
     transition-delay: 5.1s;
+    pointer-events: auto;
   }
 `
 
