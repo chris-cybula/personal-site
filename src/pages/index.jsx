@@ -107,7 +107,7 @@ const Restart = styled.div`
     transition: opacity 0.15s ease-in-out;
     transition-delay: 5.1s;
     pointer-events: auto;
-    animation: pointerDelay 17000ms;
+    animation: pointerDelay 5.1s infinite;
   }
 `
 
