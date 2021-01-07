@@ -10,7 +10,6 @@ const MODIFIER_CONFIG = {
   close: () => `
       background-color: #FF5452;
       border: 1px solid #FF5452;
-      cursor: pointer;
       pointer-events: initial;
   `,
 }
@@ -67,6 +66,7 @@ const MockupButtons = styled.div`
   height: 15px;
   display: flex;
   margin: 0 15px;
+  
 `
 
 const MockupButton = styled.div`
@@ -77,7 +77,13 @@ const MockupButton = styled.div`
   margin: 0 5px;
   position: relative;
   z-index: 200;
+  pointer-events: none;
   
+  &.is-open {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
   ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
 
@@ -101,10 +107,15 @@ const Button = styled.button`
   width: 70px;
   cursor: pointer;
   border-radius: 5px;
-  pointer-events: initial;
+  pointer-events: none;
+
 
   &:active {
     background: linear-gradient(#4faefc, #006bff);
+  }
+
+  &.is-open {
+    pointer-events: auto;
   }
 `
 
@@ -166,8 +177,8 @@ const Modal = () => {
       >
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
           <MockupBar>
-            <MockupButtons>
-              <MockupButton modifiers={"close"} onClick={closeModal}></MockupButton>
+            <MockupButtons >
+              <MockupButton  className={state.isOpen === true ? "is-open" : ""} modifiers={"close"} onClick={closeModal}></MockupButton>
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
@@ -186,7 +197,7 @@ const Modal = () => {
                 <path d="m78.364 184c-2.855 0-5.13 2.386-4.994 5.238l13.2 277.042c1.22 25.64 22.28 45.72 47.94 45.72h242.98c25.66 0 46.72-20.08 47.94-45.72l13.2-277.042c.136-2.852-2.139-5.238-4.994-5.238zm241.636 40c0-8.84 7.16-16 16-16s16 7.16 16 16v208c0 8.84-7.16 16-16 16s-16-7.16-16-16zm-80 0c0-8.84 7.16-16 16-16s16 7.16 16 16v208c0 8.84-7.16 16-16 16s-16-7.16-16-16zm-80 0c0-8.84 7.16-16 16-16s16 7.16 16 16v208c0 8.84-7.16 16-16 16s-16-7.16-16-16z" />
               </g>
             </Icon>
-            <Button onClick={closeModal}>OK</Button>
+            <Button className={state.isOpen === true ? "is-open" : ""} onClick={closeModal}>OK</Button>
             <Text>Site has been successfully deleted.</Text>
           </MockupContent>
         </MockupWrapper>
