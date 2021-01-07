@@ -8,8 +8,6 @@ const MODIFIER_CONFIG = {
   close: () => `
       background-color: #FF5452;
       border: 1px solid #FF5452;
-      cursor: pointer;
-      pointer-events: initial;
   `,
 }
 
@@ -71,6 +69,12 @@ const MockupButton = styled.div`
   margin: 0 5px;
   position: relative;
   z-index: 200;
+  pointer-events: none;
+  
+  &.is-open {
+    pointer-events: auto;
+    cursor: pointer;
+  }
   
   ${applyStyleModifiers(MODIFIER_CONFIG)};
 `
@@ -205,7 +209,7 @@ const Browser = () => {
         <MockupWrapper ref={refMockupWrapper} onMouseDown={handleMouseDown}>
           <MockupBar>
             <MockupButtons>
-              <MockupButton modifiers={"close"} onClick={closeBrowser}></MockupButton>
+              <MockupButton modifiers={"close"} className={state.isOpen === true ? "is-open" : ""} onClick={closeBrowser}></MockupButton>
               <MockupButton></MockupButton>
               <MockupButton></MockupButton>
             </MockupButtons>
