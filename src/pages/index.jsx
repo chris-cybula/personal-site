@@ -92,11 +92,22 @@ const Restart = styled.div`
   transition: opacity 0.15s ease-in-out;
   pointer-events: none;
 
+  @keyframes pointerDelay { 
+    0% { 
+      pointer-events: none;
+
+    } 
+    100% { 
+      pointer-events: auto;
+    } 
+  } 
+
   &.is-active {
     opacity: 1;
     transition: opacity 0.15s ease-in-out;
     transition-delay: 5.1s;
     pointer-events: auto;
+    animation: pointerDelay 17000ms;
   }
 `
 
