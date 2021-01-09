@@ -31,7 +31,7 @@ npm run start
 
 ## Preview
 
-### Home page
+### Desktop
 
 ![Home-Page](https://user-images.githubusercontent.com/28848115/104094026-529c4380-5286-11eb-9b3a-940f6d4ec3ad.png)
 
