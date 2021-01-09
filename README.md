@@ -1,9 +1,10 @@
-# Personal Site
-[chris-cybula.dev](https://www.chris-cybula.dev)
+# Personal Site 
 
 ## Overview
 
 Simple personal site inspired by one of the most popular operating systems. The main command center is a dock where you can open a browser, send an email, go to github and linkedin profile, listen to music and delete everything.
+
+[chris-cybula.dev](https://www.chris-cybula.dev)
 
 ## Tools
 
