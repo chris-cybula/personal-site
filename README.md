@@ -33,13 +33,13 @@ npm run start
 
 ### Home page
 
-![Home-Page](https://user-images.githubusercontent.com/28848115/104093795-c0e00680-5284-11eb-881d-eecf6e10a886.png)
+![Home-Page](https://user-images.githubusercontent.com/28848115/104094026-529c4380-5286-11eb-9b3a-940f6d4ec3ad.png)
 
 ### Browser
 
-![Browser](https://user-images.githubusercontent.com/28848115/104093811-dc4b1180-5284-11eb-85b4-29fc75a88313.png)
+![Browser](https://user-images.githubusercontent.com/28848115/104094035-5def6f00-5286-11eb-8d0a-30fa6ced2908.png)
 
 ### Modal
 
-![Modal](https://user-images.githubusercontent.com/28848115/104093824-ef5de180-5284-11eb-86aa-d82560ee85e1.png)
+![Modal](https://user-images.githubusercontent.com/28848115/104094039-65af1380-5286-11eb-8c14-e5f9457ad513.png)
 
